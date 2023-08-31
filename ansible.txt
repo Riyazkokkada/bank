@@ -99,3 +99,12 @@ webserver:
     5  systemctl status httpd
     6  history
 
+
+
+:Note : in jenkins create 
+Send files or execute commands over SSH
+rsync -avh /var/lib/jenkins/workspace/ansible/index.html root@172.31.42.218:/root/code
+
+and then
+Send build artifacts over SSH
+ansible-playbook  /root/playbook.yml
