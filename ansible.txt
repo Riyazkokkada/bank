@@ -1,0 +1,101 @@
+Project CI/CD Automation using Jenkin, Ansible ,Github and webserver
+Below are teh commands in jenkin ansible and webserver 
+[root@riyaz-jenkins workspace]# history
+    1  yum install git -y
+    2  passwd root
+    3  vi /etc/ssh/sshd_config
+    4  sudo wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    5  sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+    6  sudo yum upgrade
+    7  sudo yum install java
+    8  sudo yum install jenkins
+    9  sudo systemctl daemon-reload
+   10  systemctl start jenkins
+   11  cat /var/lib/jenkins/secrets/initialAdminPassword
+   12  systemctl restart sshd
+   13  ssh-keygen
+   14  sshd-copy-id -i root@172.31.42.218
+   15  ssh-copy-id -i root@172.31.42.218
+   16  ssh root@172.31.42.218
+   17  cd /var/
+   18  ll
+   19  cd
+   20  cd /etc/
+   21  ll
+   22  cd
+   23  cd /var/[Cr/l
+   24  cd /var/lib/jenkins/
+   25  ll
+   26  cd workspace/
+   27  ll
+   28  history
+
+
+Ansible :
+
+[root@riyaz-ansible ~]# history
+    1  passwd root
+    2  vi /etc/ssh/sshd_config
+    3  yum install ansible
+    4  sudo amazon-linux-extras install ansible2
+    5  systemctl restart sshd
+    6  vi /etc/ansible/hosts
+    7  ansible web -m ping
+    8  ssh-keygen
+    9  ssh-copy-id -i root@172.31.35.236
+   10  ssh root@172.31.35.236
+   11  ansible web -m ping
+   12  mkdir code
+   13  cd code
+   14  vi playbook.yml
+   15  cat playbook.yml
+   16  vi nn
+   17  mv nn playbook.yml
+   18  cat playbook.yml
+   19  cp playbook.yml /root/
+   20  cd ..
+   21  ll
+   22  cd code/
+   23  rm -rf *
+   24  ll
+   25  cd ..
+   26  service httpd status
+   27  ansible-playbook playbook.yml
+   28  systemctl status httpd
+   29  cat playbook.yml
+   30  ansible web -m ping
+   31  ll
+   32  cd code/
+   33  ll
+   34  cat index.html
+   35  cd ..
+   36  ansible-playbook playbook.yml
+   37  history
+
+
+playbook:
+#playbook yaml
+- hosts: web
+  tasks:
+    - yum:
+        name: httpd
+        state: present
+    - service:
+        name: httpd
+        state: started
+    - copy:
+        src: /root/code/index.html
+        dest: /var/www/html
+
+
+webserver:
+
+
+[root@riyaz-webserver ~]# history
+    1  passwd root
+    2  vi /etc/ssh/sshd_config
+    3  systemctl restart sshd
+    4  which httpd
+    5  systemctl status httpd
+    6  history
+
